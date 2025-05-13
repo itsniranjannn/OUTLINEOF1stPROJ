@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="n.css">
+    <link rel="stylesheet" href="book.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Booking - NK Movies</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar"> 
+            <div class="navbar-left">
+                <img src="logo.png" alt="Nk" class="logo">
+            </div>
+            <div class="navbar-center">
+                <ul class="navbar-menu">
+                    <li><a href="home.html"><i class="fa fa-home"></i></a></li>
+                    <li><a href="booking.html" class="btn">Book Now</a></li>
+                    <li><a href="movie.html" class="btn">Movies</a></li>
+                    <li><a href="about.html" class="btn">About Us</a></li>
+                    <li>
+                        <form class="search-form">
+                            <input type="text" placeholder="Search..." class="search-input">
+                            <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-right">
+                <a href="login.html" class="btn">Log In</a> 
+                <a href="signup.html" class="btn">Sign In</a>
+            </div>        
+        </nav>
+    </header>
+    
+    <section class="container mt-5">
+        <h2 class="text-center">Select Your Movie</h2>
+        <div class="row">
+               <div class="col-md-4">
+                <div class="card">
+                    <img src="g.jpg" class="card-img-top" alt="screen 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Now Showing</h5>
+                        <select class="form-control movie-select">
+                            <option value="Puspa 2">Puspa 2</option>
+                            <option value="Kanguva">Kanguva</option>
+                            <option value="Behuli from Meghauli">Behuli from Meghauli</option>
+                            <option value="Mufasa: The Lion King">Mufasa: The Lion King</option>
+                        </select>
+                        <p>Showtimes:</p>
+                        <select class="form-control">
+                            <option>10:00 AM</option>
+                            <option>1:00 PM</option>
+                            <option>4:00 PM</option>
+                            <option>7:00 PM</option>
+                        </select>
+                        <p class="mt-2">Price: Rs. 300</p>
+                        <button class="btn btn-primary btn-book" onclick="bookScreen('Screen Gold', '300', this)">Book Now</button>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="d.jpg" class="card-img-top" alt="screen 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Now Showing</h5>
+                        <select class="form-control movie-select">
+                            <option value="Thangalaan">Thangalaan</option>
+                            <option value="The GOAT">The GOAT</option>
+                            <option value="Bar Badhu">Bar Badhu</option>
+                            <option value="Joker: Folie à Deux">Joker: Folie à Deux</option>
+                        </select>
+                        <p>Showtimes:</p>
+                        <select class="form-control">
+                            <option>11:00 AM</option>
+                            <option>2:00 PM</option>
+                            <option>5:00 PM</option>
+                            <option>8:00 PM</option>
+                        </select>
+                        <p class="mt-2">Price: Rs. 350</p>
+                        <button class="btn btn-primary btn-book" onclick="bookScreen('Screen Diamond', '350', this)">Book Now</button>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="p.jpg" class="card-img-top" alt="screen 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Now Showing</h5>
+                        <select class="form-control movie-select">
+                            <option value="Kraven the Hunter">Kraven the Hunter</option>
+                            <option value="Hrashwo Deergha">Hrashwo Deergha</option>
+                            <option value="Smile 2">Smile 2</option>
+                            <option value="Gunyo Cholo">Gunyo Cholo</option>
+                        </select>
+                        <p>Showtimes:</p>
+                        <select class="form-control">
+                            <option>12:00 PM</option>
+                            <option>3:00 PM</option>
+                            <option>6:00 PM</option>
+                            <option>9:00 PM</option>
+                        </select>
+                        <p class="mt-2">Price: Rs. 400</p>
+                        <button class="btn btn-primary btn-book" onclick="bookScreen('Screen Platinum', '400', this)">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+   
+    <section class="container mt-5 confirm-section" id="confirmSection">
+        <h2 class="text-center">Booking Confirmation</h2>
+        <div class="alert alert-info text-center" id="confirmMessage">
+            <p>Your booking has been confirmed!</p>
+            <p>Please show this confirmation at the theater to pay for your ticket and collect your seat.</p>
+        </div>
+    </section>
+
+      <script>
+        function bookScreen(screenType, price, button) {
+            const movieSelect = button.parentNode.querySelector('.movie-select');
+            const selectedMovie = movieSelect.value;
+            const confirmSection = document.getElementById('confirmSection');
+            const confirmMessage = document.getElementById('confirmMessage');
+            
+            confirmMessage.innerHTML = `
+                <p>Your booking for <strong>${screenType}</strong> has been confirmed!</p>
+                <p>Movie: <strong>${selectedMovie}</strong></p>
+                <p>Price: <strong>Rs. ${price}</strong></p>
+                <p>Please show this confirmation at the theater to pay for your ticket and collect your seat.</p>
+            `;
+            
+            confirmSection.classList.add('active');
+        }
+    </script>
+    <footer>
+        <div class="foot">
+            <a href="home.html">Home</a>
+            <a href="movie.html">Shows</a>
+            <a href="about.html">About us</a>
+         <hr>
+        </div>
+             <p> &copy;2024 NK Theater And Movies | All Rights Are Reserved</p>
+                        
+            <img src="logo.png" alt="logo"  width="15%">
+       </footer>
+</body>
+</html>

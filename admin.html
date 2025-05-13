@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="n.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Admin Panel</h1>
+        <ul class="nav nav-tabs mt-3">
+            <li class="nav-item">
+                <a class="nav-link active" href="#movies" data-toggle="tab">Manage Movies</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#bookings" data-toggle="tab">Manage Bookings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#users" data-toggle="tab">Manage Users</a>
+            </li>
+        </ul>
+        <div class="tab-content mt-3">
+            <div id="movies" class="tab-pane fade show active">
+                <h3>Movies</h3>
+                <!-- Form to add/edit movies -->
+                <form action="manage_movies.php" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" name="description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="poster">Poster</label>
+                        <input type="file" class="form-control" name="poster" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="showtimes">Showtimes (Comma separated)</label>
+                        <input type="text" class="form-control" name="showtimes" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" class="form-control" name="price" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Movie</button>
+                </form>
+            </div>
+            <div id="bookings" class="tab-pane fade">
+                <h3>Bookings</h3>
+                <!-- List and manage bookings here -->
+            </div>
+            <div id="users" class="tab-pane fade">
+                <h3>Users</h3>
+                <!-- List and manage users here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
